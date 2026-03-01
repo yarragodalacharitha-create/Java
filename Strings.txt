@@ -1,0 +1,241 @@
+Reverse String
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        String rev = "";
+        for(int i = s.length()-1; i >= 0; i--) {
+            rev += s.charAt(i);
+        }
+
+        System.out.println(rev);
+    }
+}
+
+
+
+Odd Even Index
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        String even = "", odd = "";
+
+        for(int i = 0; i < s.length(); i++) {
+            if(i % 2 == 0)
+                even += s.charAt(i);
+            else
+                odd += s.charAt(i);
+        }
+
+        System.out.println(even);
+        System.out.println(odd);
+    }
+}
+
+
+
+
+Occurrence of a Character
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        char ch = sc.next().charAt(0);
+
+        int count = 0;
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == ch)
+                count++;
+        }
+
+        System.out.println(count);
+    }
+}
+
+
+
+
+Vowels in a String
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next().toLowerCase();
+
+        int count = 0;
+        for(int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if("aeiou".indexOf(ch) != -1)
+                count++;
+        }
+
+        System.out.println(count);
+    }
+}
+
+
+
+
+Digits in a String
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        int count = 0;
+        for(int i = 0; i < s.length(); i++) {
+            if(Character.isDigit(s.charAt(i)))
+                count++;
+        }
+
+        System.out.println(count);
+    }
+}
+
+
+
+Toggle Case
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        String result = "";
+
+        for(int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if(Character.isUpperCase(ch))
+                result += Character.toLowerCase(ch);
+            else
+                result += Character.toUpperCase(ch);
+        }
+
+        System.out.println(result);
+    }
+}
+
+
+
+
+Pangram
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.next().toLowerCase();
+
+        boolean[] seen = new boolean[26];
+
+        for(int i = 0; i < s.length(); i++) {
+            seen[s.charAt(i) - 'a'] = true;
+        }
+
+        boolean pangram = true;
+        for(int i = 0; i < 26; i++) {
+            if(!seen[i]) {
+                pangram = false;
+                break;
+            }
+        }
+
+        System.out.println(pangram ? "YES" : "NO");
+    }
+}
+
+
+
+
+Way Too Long Words
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while(t-- > 0) {
+            String s = sc.next();
+
+            if(s.length() > 10)
+                System.out.println("" + s.charAt(0) + (s.length()-2) + s.charAt(s.length()-1));
+            else
+                System.out.println(s);
+        }
+    }
+}
+
+
+
+
+
+YES or YES?
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while(t-- > 0) {
+            String s = sc.next().toLowerCase();
+
+            if(s.equals("yes"))
+                System.out.println("YES");
+            else
+                System.out.println("NO");
+        }
+    }
+}
+
+
+
+
+
+Compare T-Shirt Sizes
+import java.util.*;
+
+public class Main {
+
+    static int sizeValue(String s) {
+        if(s.equals("XS")) return 1;
+        if(s.equals("S")) return 2;
+        if(s.equals("M")) return 3;
+        if(s.equals("L")) return 4;
+        if(s.equals("XL")) return 5;
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while(t-- > 0) {
+            String a = sc.next();
+            String b = sc.next();
+
+            int x = sizeValue(a);
+            int y = sizeValue(b);
+
+            if(x > y) System.out.println(">");
+            else if(x < y) System.out.println("<");
+            else System.out.println("=");
+        }
+    }
+}
